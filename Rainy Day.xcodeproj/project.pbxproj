@@ -21,7 +21,7 @@
 		B7141170190A3FE0005A0B3C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		B7141172190A3FE0005A0B3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B7141175190A3FE0005A0B3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7141179190A3FE0005A0B3C /* Rainy Day-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Rainy Day-Prefix.pch"; path = "../Source/Rainy Day-Prefix.pch"; sourceTree = "<group>"; };
+		B7141179190A3FE0005A0B3C /* RainyDay-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RainyDay-Prefix.pch"; sourceTree = "<group>"; };
 		B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPDRainyDayView.h; sourceTree = "<group>"; };
 		B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPDRainyDayView.m; sourceTree = "<group>"; };
 		B7141185190A4155005A0B3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -84,10 +84,10 @@
 		B7141174190A3FE0005A0B3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B7141179190A3FE0005A0B3C /* Rainy Day-Prefix.pch */,
+				B7141179190A3FE0005A0B3C /* RainyDay-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			path = "Rainy Day";
+			path = Source;
 			sourceTree = "<group>";
 		};
 		B7141182190A409E005A0B3C /* Source */ = {
@@ -286,7 +286,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/Rainy Day-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/RainyDay-Prefix.pch";
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,7 +300,7 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Source/Rainy Day-Prefix.pch";
+				GCC_PREFIX_HEADER = "Source/RainyDay-Prefix.pch";
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
