@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B714116C190A3FE0005A0B3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116B190A3FE0005A0B3C /* Cocoa.framework */; };
+		B714116E190A3FE0005A0B3C /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116D190A3FE0005A0B3C /* ScreenSaver.framework */; };
+		B7141178190A3FE0005A0B3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7141176190A3FE0005A0B3C /* InfoPlist.strings */; };
+		B714117C190A3FE0005A0B3C /* Rainy_DayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B714117B190A3FE0005A0B3C /* Rainy_DayView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B7141168190A3FE0005A0B3C /* Rainy Day.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rainy Day.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B714116B190A3FE0005A0B3C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B714116D190A3FE0005A0B3C /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
+		B7141170190A3FE0005A0B3C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		B7141171190A3FE0005A0B3C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B7141172190A3FE0005A0B3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B7141175190A3FE0005A0B3C /* Rainy Day-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Rainy Day-Info.plist"; sourceTree = "<group>"; };
+		B7141177190A3FE0005A0B3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7141179190A3FE0005A0B3C /* Rainy Day-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rainy Day-Prefix.pch"; sourceTree = "<group>"; };
+		B714117A190A3FE0005A0B3C /* Rainy_DayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rainy_DayView.h; sourceTree = "<group>"; };
+		B714117B190A3FE0005A0B3C /* Rainy_DayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rainy_DayView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B7141163190A3FE0005A0B3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B714116E190A3FE0005A0B3C /* ScreenSaver.framework in Frameworks */,
+				B714116C190A3FE0005A0B3C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B714115D190A3FE0005A0B3C = {
+			isa = PBXGroup;
+			children = (
+				B7141173190A3FE0005A0B3C /* Rainy Day */,
+				B714116A190A3FE0005A0B3C /* Frameworks */,
+				B7141169190A3FE0005A0B3C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B7141169190A3FE0005A0B3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B7141168190A3FE0005A0B3C /* Rainy Day.saver */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B714116A190A3FE0005A0B3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B714116B190A3FE0005A0B3C /* Cocoa.framework */,
+				B714116D190A3FE0005A0B3C /* ScreenSaver.framework */,
+				B714116F190A3FE0005A0B3C /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B714116F190A3FE0005A0B3C /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7141170190A3FE0005A0B3C /* AppKit.framework */,
+				B7141171190A3FE0005A0B3C /* CoreData.framework */,
+				B7141172190A3FE0005A0B3C /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		B7141173190A3FE0005A0B3C /* Rainy Day */ = {
+			isa = PBXGroup;
+			children = (
+				B714117A190A3FE0005A0B3C /* Rainy_DayView.h */,
+				B714117B190A3FE0005A0B3C /* Rainy_DayView.m */,
+				B7141174190A3FE0005A0B3C /* Supporting Files */,
+			);
+			path = "Rainy Day";
+			sourceTree = "<group>";
+		};
+		B7141174190A3FE0005A0B3C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B7141175190A3FE0005A0B3C /* Rainy Day-Info.plist */,
+				B7141176190A3FE0005A0B3C /* InfoPlist.strings */,
+				B7141179190A3FE0005A0B3C /* Rainy Day-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B7141164190A3FE0005A0B3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B7141167190A3FE0005A0B3C /* Rainy Day */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B714117F190A3FE0005A0B3C /* Build configuration list for PBXNativeTarget "Rainy Day" */;
+			buildPhases = (
+				B7141162190A3FE0005A0B3C /* Sources */,
+				B7141163190A3FE0005A0B3C /* Frameworks */,
+				B7141164190A3FE0005A0B3C /* Headers */,
+				B7141165190A3FE0005A0B3C /* Resources */,
+				B7141166190A3FE0005A0B3C /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Rainy Day";
+			productName = "Rainy Day";
+			productReference = B7141168190A3FE0005A0B3C /* Rainy Day.saver */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B714115E190A3FE0005A0B3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Michael Dippery";
+			};
+			buildConfigurationList = B7141161190A3FE0005A0B3C /* Build configuration list for PBXProject "Rainy Day" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B714115D190A3FE0005A0B3C;
+			productRefGroup = B7141169190A3FE0005A0B3C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7141167190A3FE0005A0B3C /* Rainy Day */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7141165190A3FE0005A0B3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7141178190A3FE0005A0B3C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		B7141166190A3FE0005A0B3C /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7141162190A3FE0005A0B3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B714117C190A3FE0005A0B3C /* Rainy_DayView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B7141176190A3FE0005A0B3C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7141177190A3FE0005A0B3C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B714117D190A3FE0005A0B3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B714117E190A3FE0005A0B3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B7141180190A3FE0005A0B3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rainy Day/Rainy Day-Prefix.pch";
+				INFOPLIST_FILE = "Rainy Day/Rainy Day-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Debug;
+		};
+		B7141181190A3FE0005A0B3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Rainy Day/Rainy Day-Prefix.pch";
+				INFOPLIST_FILE = "Rainy Day/Rainy Day-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B7141161190A3FE0005A0B3C /* Build configuration list for PBXProject "Rainy Day" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B714117D190A3FE0005A0B3C /* Debug */,
+				B714117E190A3FE0005A0B3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B714117F190A3FE0005A0B3C /* Build configuration list for PBXNativeTarget "Rainy Day" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7141180190A3FE0005A0B3C /* Debug */,
+				B7141181190A3FE0005A0B3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B714115E190A3FE0005A0B3C /* Project object */;
+}
