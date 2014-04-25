@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		B714116C190A3FE0005A0B3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116B190A3FE0005A0B3C /* Cocoa.framework */; };
 		B714116E190A3FE0005A0B3C /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116D190A3FE0005A0B3C /* ScreenSaver.framework */; };
-		B7141178190A3FE0005A0B3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7141176190A3FE0005A0B3C /* InfoPlist.strings */; };
-		B714117C190A3FE0005A0B3C /* Rainy_DayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B714117B190A3FE0005A0B3C /* Rainy_DayView.m */; };
+		B714117C190A3FE0005A0B3C /* MPDRainyDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */; };
+		B7141186190A4155005A0B3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7141184190A4155005A0B3C /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,13 +18,12 @@
 		B714116B190A3FE0005A0B3C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B714116D190A3FE0005A0B3C /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
 		B7141170190A3FE0005A0B3C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		B7141171190A3FE0005A0B3C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B7141172190A3FE0005A0B3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B7141175190A3FE0005A0B3C /* Rainy Day-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Rainy Day-Info.plist"; sourceTree = "<group>"; };
-		B7141177190A3FE0005A0B3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B7141179190A3FE0005A0B3C /* Rainy Day-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rainy Day-Prefix.pch"; sourceTree = "<group>"; };
-		B714117A190A3FE0005A0B3C /* Rainy_DayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rainy_DayView.h; sourceTree = "<group>"; };
-		B714117B190A3FE0005A0B3C /* Rainy_DayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rainy_DayView.m; sourceTree = "<group>"; };
+		B7141175190A3FE0005A0B3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7141179190A3FE0005A0B3C /* Rainy Day-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Rainy Day-Prefix.pch"; path = "../Source/Rainy Day-Prefix.pch"; sourceTree = "<group>"; };
+		B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPDRainyDayView.h; sourceTree = "<group>"; };
+		B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPDRainyDayView.m; sourceTree = "<group>"; };
+		B7141185190A4155005A0B3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +42,9 @@
 		B714115D190A3FE0005A0B3C = {
 			isa = PBXGroup;
 			children = (
-				B7141173190A3FE0005A0B3C /* Rainy Day */,
+				B7141182190A409E005A0B3C /* Source */,
+				B7141183190A4102005A0B3C /* Resources */,
+				B7141174190A3FE0005A0B3C /* Supporting Files */,
 				B714116A190A3FE0005A0B3C /* Frameworks */,
 				B7141169190A3FE0005A0B3C /* Products */,
 			);
@@ -71,30 +72,36 @@
 			isa = PBXGroup;
 			children = (
 				B7141170190A3FE0005A0B3C /* AppKit.framework */,
-				B7141171190A3FE0005A0B3C /* CoreData.framework */,
 				B7141172190A3FE0005A0B3C /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		B7141173190A3FE0005A0B3C /* Rainy Day */ = {
-			isa = PBXGroup;
-			children = (
-				B714117A190A3FE0005A0B3C /* Rainy_DayView.h */,
-				B714117B190A3FE0005A0B3C /* Rainy_DayView.m */,
-				B7141174190A3FE0005A0B3C /* Supporting Files */,
-			);
-			path = "Rainy Day";
-			sourceTree = "<group>";
-		};
 		B7141174190A3FE0005A0B3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B7141175190A3FE0005A0B3C /* Rainy Day-Info.plist */,
-				B7141176190A3FE0005A0B3C /* InfoPlist.strings */,
 				B7141179190A3FE0005A0B3C /* Rainy Day-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = "Rainy Day";
+			sourceTree = "<group>";
+		};
+		B7141182190A409E005A0B3C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */,
+				B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B7141183190A4102005A0B3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B7141175190A3FE0005A0B3C /* Info.plist */,
+				B7141184190A4155005A0B3C /* InfoPlist.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,7 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7141178190A3FE0005A0B3C /* InfoPlist.strings in Resources */,
+				B7141186190A4155005A0B3C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,17 +188,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B714117C190A3FE0005A0B3C /* Rainy_DayView.m in Sources */,
+				B714117C190A3FE0005A0B3C /* MPDRainyDayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B7141176190A3FE0005A0B3C /* InfoPlist.strings */ = {
+		B7141184190A4155005A0B3C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B7141177190A3FE0005A0B3C /* en */,
+				B7141185190A4155005A0B3C /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -274,8 +281,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Rainy Day/Rainy Day-Prefix.pch";
-				INFOPLIST_FILE = "Rainy Day/Rainy Day-Info.plist";
+				GCC_PREFIX_HEADER = "Source/Rainy Day-Prefix.pch";
+				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = saver;
@@ -287,8 +294,8 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Rainy Day/Rainy Day-Prefix.pch";
-				INFOPLIST_FILE = "Rainy Day/Rainy Day-Info.plist";
+				GCC_PREFIX_HEADER = "Source/Rainy Day-Prefix.pch";
+				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = saver;
@@ -314,6 +321,7 @@
 				B7141181190A3FE0005A0B3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

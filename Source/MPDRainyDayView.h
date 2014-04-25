@@ -8,6 +8,6 @@
 
 #import <ScreenSaver/ScreenSaver.h>
 
-@interface Rainy_DayView : ScreenSaverView
 
+@interface MPDRainDayView : ScreenSaverView
 @end

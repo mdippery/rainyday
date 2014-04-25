@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 Michael Dippery. All rights reserved.
 //
 
-#import "Rainy_DayView.h"
+#import "MPDRainyDayView.h"
 
-@implementation Rainy_DayView
+
+@implementation MPDRainDayView
 
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
