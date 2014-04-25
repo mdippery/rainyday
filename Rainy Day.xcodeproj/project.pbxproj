@@ -11,6 +11,7 @@
 		B714116E190A3FE0005A0B3C /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116D190A3FE0005A0B3C /* ScreenSaver.framework */; };
 		B714117C190A3FE0005A0B3C /* MPDRainyDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */; };
 		B7141186190A4155005A0B3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7141184190A4155005A0B3C /* InfoPlist.strings */; };
+		B7141188190A425E005A0B3C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7141187190A425E005A0B3C /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPDRainyDayView.h; sourceTree = "<group>"; };
 		B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPDRainyDayView.m; sourceTree = "<group>"; };
 		B7141185190A4155005A0B3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7141187190A425E005A0B3C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7141188190A425E005A0B3C /* WebKit.framework in Frameworks */,
 				B714116E190A3FE0005A0B3C /* ScreenSaver.framework in Frameworks */,
 				B714116C190A3FE0005A0B3C /* Cocoa.framework in Frameworks */,
 			);
@@ -63,6 +66,7 @@
 			children = (
 				B714116B190A3FE0005A0B3C /* Cocoa.framework */,
 				B714116D190A3FE0005A0B3C /* ScreenSaver.framework */,
+				B7141187190A425E005A0B3C /* WebKit.framework */,
 				B714116F190A3FE0005A0B3C /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -279,6 +283,7 @@
 		B7141180190A3FE0005A0B3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Rainy Day-Prefix.pch";
@@ -292,6 +297,7 @@
 		B7141181190A3FE0005A0B3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/Rainy Day-Prefix.pch";

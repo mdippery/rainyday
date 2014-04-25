@@ -8,6 +8,13 @@
 
 #import <ScreenSaver/ScreenSaver.h>
 
+@class WebView;
+
 
 @interface MPDRainDayView : ScreenSaverView
+{
+@private
+    WebView *_webView;
+}
+@property (readonly) NSURLRequest *request;
 @end
