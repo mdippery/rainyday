@@ -35,6 +35,7 @@
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
         _webView = [[WebView alloc] initWithFrame:frame];
+        [_webView setFrameLoadDelegate:self];
     }
     return self;
 }
@@ -55,6 +56,7 @@
 
 - (void)startAnimation
 {
+    [_webView setAlphaValue:0.0];
     [self addSubview:_webView];
     [[_webView mainFrame] loadRequest:[self request]];
     [super startAnimation];
@@ -74,6 +76,13 @@
 - (NSWindow *)configureSheet
 {
     return nil;
+}
+
+#pragma mark WebFrame Load Delegate
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
+{
+    [_webView setAlphaValue:1.0];
 }
 
 @end
