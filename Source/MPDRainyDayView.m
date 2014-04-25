@@ -51,6 +51,8 @@
     return [NSURLRequest requestWithURL:url];
 }
 
+#pragma mark Screen Saver
+
 - (void)startAnimation
 {
     [self addSubview:_webView];
