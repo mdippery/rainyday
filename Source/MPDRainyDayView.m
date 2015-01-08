@@ -56,10 +56,10 @@
 
 - (void)startAnimation
 {
-    [super startAnimation];
     [_webView setAlphaValue:0.0];
     [self addSubview:_webView];
     [[_webView mainFrame] loadRequest:[self request]];
+    [super startAnimation];
 }
 
 - (void)stopAnimation
