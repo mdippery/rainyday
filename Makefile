@@ -4,4 +4,7 @@ rainyday:
 clean:
 	xcodebuild clean
 
-.PHONY: rainyday clean
+distclean: clean
+	rm -rf build
+
+.PHONY: rainyday clean distclean
