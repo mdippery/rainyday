@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Michael Dippery <michael@monkey-robot.com>
+ * Copyright (C) 2014-2016 Michael Dippery <michael@monkey-robot.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,6 @@
  */
 
 #import "MPDRainyDayView.h"
-#import <WebKit/WebKit.h>
 
 
 @implementation MPDRainDayView

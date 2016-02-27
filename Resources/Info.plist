@@ -23,7 +23,7 @@
 	<key>CFBundleVersion</key>
 	<string>0.1.0</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2014 Michael Dippery. All rights reserved.</string>
+	<string>Copyright © 2016 Michael Dippery. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string>MPDRainyDayView</string>
 </dict>
