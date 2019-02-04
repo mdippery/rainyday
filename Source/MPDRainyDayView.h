@@ -23,8 +23,6 @@
 #import <ScreenSaver/ScreenSaver.h>
 #import <WebKit/WebKit.h>
 
-@class WebView;
-
 
 @interface MPDRainDayView : ScreenSaverView <WebFrameLoadDelegate>
 {
