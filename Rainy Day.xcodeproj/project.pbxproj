@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2AE01E2220A661F003F99D0 /* DefaultBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2AE01E1220A661F003F99D0 /* DefaultBackground.jpg */; };
 		B714116C190A3FE0005A0B3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116B190A3FE0005A0B3C /* Cocoa.framework */; };
 		B714116E190A3FE0005A0B3C /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116D190A3FE0005A0B3C /* ScreenSaver.framework */; };
 		B714117C190A3FE0005A0B3C /* MPDRainyDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A2AE01E1220A661F003F99D0 /* DefaultBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultBackground.jpg; sourceTree = "<group>"; };
 		B7141168190A3FE0005A0B3C /* Rainy Day.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rainy Day.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B714116B190A3FE0005A0B3C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B714116D190A3FE0005A0B3C /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
@@ -100,6 +102,7 @@
 			children = (
 				B7141175190A3FE0005A0B3C /* Info.plist */,
 				B7141184190A4155005A0B3C /* InfoPlist.strings */,
+				A2AE01E1220A661F003F99D0 /* DefaultBackground.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7141186190A4155005A0B3C /* InfoPlist.strings in Resources */,
+				A2AE01E2220A661F003F99D0 /* DefaultBackground.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
