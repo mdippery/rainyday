@@ -25,6 +25,8 @@
 
 @implementation MPDRainDayView
 
+@synthesize frame;
+
 + (BOOL)performGammaFade
 {
     return YES;
@@ -33,37 +35,56 @@
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
-        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-        NSURL *url = [bundle URLForImageResource:@"DefaultBackground"];
-        NSImage *sourceImage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
-        NSImageRep *sourceRep = [sourceImage bestRepresentationForRect:frame context:nil hints:nil];
-        NSImage *backgroundImage = [NSImage imageWithSize:frame.size flipped:NO drawingHandler:^BOOL(NSRect frame_) {
-            return [sourceRep drawInRect:frame_];
-        }];
-        backgroundImageView = [[NSImageView alloc] initWithFrame:frame];
-        [backgroundImageView setImage:backgroundImage];
+        [self setFrame:frame];
+        _backgroundImageView = nil;
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [backgroundImageView release];
+    [_backgroundImageView release];
     [super dealloc];
+}
+
+- (NSImageView *)backgroundImageView
+{
+    if (!_backgroundImageView) {
+        NSLog(@"Loading background image");
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        NSURL *url = [bundle URLForImageResource:@"DefaultBackground"];
+        NSImage *sourceImage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
+        NSImageRep *sourceRep = [sourceImage bestRepresentationForRect:[self frame] context:nil hints:nil];
+        NSImage *backgroundImage = [NSImage imageWithSize:[self frame].size flipped:NO drawingHandler:^BOOL(NSRect frame_) {
+            return [sourceRep drawInRect:frame_];
+        }];
+        _backgroundImageView = [[NSImageView alloc] initWithFrame:[self frame]];
+        [_backgroundImageView setImage:backgroundImage];
+    }
+
+    return _backgroundImageView;
+}
+
+- (void)blurBackground
+{
 }
 
 #pragma mark Screen Saver
 
 - (void)startAnimation
 {
-    [self addSubview:backgroundImageView];
+    NSAssert([self backgroundImageView] != nil, @"backgroundImageView is nil");
+    [self blurBackground];
+    [self addSubview:[self backgroundImageView]];
     [super startAnimation];
 }
 
 - (void)stopAnimation
 {
     [super stopAnimation];
-    [backgroundImageView removeFromSuperview];
+    [[self backgroundImageView] removeFromSuperview];
+    [_backgroundImageView release];
+    _backgroundImageView = nil;
 }
 
 - (BOOL)hasConfigureSheet

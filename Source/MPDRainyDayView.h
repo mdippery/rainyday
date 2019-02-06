@@ -25,6 +25,9 @@
 
 @interface MPDRainDayView : ScreenSaverView
 {
-    NSImageView *backgroundImageView;
+    NSImageView *_backgroundImageView;
 }
+@property (assign) NSRect frame;
+@property (readonly) NSImageView *backgroundImageView;
+- (void)blurBackground;
 @end
