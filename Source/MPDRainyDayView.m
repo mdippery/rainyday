@@ -21,6 +21,7 @@
  */
 
 #import "MPDRainyDayView.h"
+#import "NSImage+RainyDayAdditions.h"
 
 
 @implementation MPDRainDayView
@@ -54,10 +55,7 @@
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
         NSURL *url = [bundle URLForImageResource:@"DefaultBackground"];
         NSImage *sourceImage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
-        NSImageRep *sourceRep = [sourceImage bestRepresentationForRect:[self frame] context:nil hints:nil];
-        NSImage *backgroundImage = [NSImage imageWithSize:[self frame].size flipped:NO drawingHandler:^BOOL(NSRect frame_) {
-            return [sourceRep drawInRect:frame_];
-        }];
+        NSImage *backgroundImage = [sourceImage stretchToFrame:[self frame]];
         _backgroundImageView = [[NSImageView alloc] initWithFrame:[self frame]];
         [_backgroundImageView setImage:backgroundImage];
     }
@@ -79,9 +77,8 @@
 
 - (void)startAnimation
 {
-    NSAssert([self backgroundImageView] != nil, @"backgroundImageView is nil");
-    [self blurBackground];
     [self addSubview:[self backgroundImageView]];
+    [self blurBackground];
     [super startAnimation];
 }
 
