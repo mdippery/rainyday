@@ -28,6 +28,6 @@
     NSImageView *_backgroundImageView;
 }
 @property (assign) NSRect frame;
-@property (readonly) NSImageView *backgroundImageView;
+@property (strong, nonatomic) NSImageView *backgroundImageView;
 - (void)blurBackground;
 @end

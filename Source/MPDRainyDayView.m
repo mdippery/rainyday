@@ -36,7 +36,7 @@
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
         [self setFrame:frame];
-        _backgroundImageView = nil;
+        [self setBackgroundImageView:nil];
     }
     return self;
 }
@@ -65,6 +65,12 @@
     return _backgroundImageView;
 }
 
+- (void)setBackgroundImageView:(NSImageView *)backgroundImageView
+{
+    [_backgroundImageView release];
+    _backgroundImageView = [backgroundImageView retain];
+}
+
 - (void)blurBackground
 {
 }
@@ -83,8 +89,7 @@
 {
     [super stopAnimation];
     [[self backgroundImageView] removeFromSuperview];
-    [_backgroundImageView release];
-    _backgroundImageView = nil;
+    [self setBackgroundImageView:nil];
 }
 
 - (BOOL)hasConfigureSheet
