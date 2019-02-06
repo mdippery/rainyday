@@ -36,7 +36,6 @@
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
-        [self setFrame:frame];
         [self setBackgroundImageView:nil];
     }
     return self;
