@@ -14,7 +14,6 @@
 		B714116C190A3FE0005A0B3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116B190A3FE0005A0B3C /* Cocoa.framework */; };
 		B714116E190A3FE0005A0B3C /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116D190A3FE0005A0B3C /* ScreenSaver.framework */; };
 		B714117C190A3FE0005A0B3C /* MPDRainyDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */; };
-		B7141186190A4155005A0B3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7141184190A4155005A0B3C /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		B7141179190A3FE0005A0B3C /* RainyDay-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RainyDay-Prefix.pch"; sourceTree = "<group>"; };
 		B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPDRainyDayView.h; sourceTree = "<group>"; };
 		B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPDRainyDayView.m; sourceTree = "<group>"; wrapsLines = 0; };
-		B7141185190A4155005A0B3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				B7141175190A3FE0005A0B3C /* Info.plist */,
-				B7141184190A4155005A0B3C /* InfoPlist.strings */,
 				A2AE01E1220A661F003F99D0 /* DefaultBackground.jpg */,
 			);
 			path = Resources;
@@ -181,7 +178,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7141186190A4155005A0B3C /* InfoPlist.strings in Resources */,
 				A2AE01E2220A661F003F99D0 /* DefaultBackground.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,17 +205,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B7141184190A4155005A0B3C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B7141185190A4155005A0B3C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B714117D190A3FE0005A0B3C /* Debug */ = {
