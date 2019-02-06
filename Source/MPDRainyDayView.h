@@ -29,5 +29,6 @@
 }
 @property (assign) NSRect frame;
 @property (strong, nonatomic) NSImageView *backgroundImageView;
+@property (readonly) CGFloat blurRadius;
 - (void)blurBackground;
 @end

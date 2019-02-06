@@ -69,8 +69,14 @@
     _backgroundImageView = [backgroundImageView retain];
 }
 
+- (CGFloat)blurRadius
+{
+    return 10.0;
+}
+
 - (void)blurBackground
 {
+    [[[self backgroundImageView] image] gaussianBlurOfRadius:[self blurRadius]];
 }
 
 #pragma mark Screen Saver

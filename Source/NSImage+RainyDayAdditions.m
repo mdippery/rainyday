@@ -20,6 +20,7 @@
  * THE SOFTWARE.
  */
 
+#import <CoreImage/CoreImage.h>
 #import "NSImage+RainyDayAdditions.h"
 
 
@@ -32,6 +33,30 @@
         return [sourceRep drawInRect:frame_];
     }];
     return backgroundImage;
+}
+
+@end
+
+
+@implementation NSImage (Blur)
+
+- (NSImage *)gaussianBlurOfRadius:(CGFloat)radius
+{
+    [self lockFocus];
+    
+    CIImage *image = [[CIImage alloc] initWithData:[self TIFFRepresentation]];
+    
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [filter setDefaults];
+    [filter setValue:image forKey:kCIInputImageKey];
+    [filter setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
+    
+    CIImage *output = [filter valueForKey:@"outputImage"];
+    NSRect frame = NSMakeRect(0, 0, [self size].width, [self size].height);
+    [output drawInRect:frame fromRect:frame operation:NSCompositeSourceOver fraction:1.0];
+    
+    [self unlockFocus];
+    return self;
 }
 
 @end

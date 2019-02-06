@@ -24,7 +24,9 @@
 
 
 @interface NSImage (Scaling)
-
 - (NSImage *)stretchToFrame:(NSRect)frame;
+@end
 
+@interface NSImage (Blur)
+- (NSImage *)gaussianBlurOfRadius:(CGFloat)radius;
 @end
