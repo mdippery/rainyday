@@ -1,5 +1,4 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
     #import <ScreenSaver/ScreenSaver.h>
-    #import <WebKit/WebKit.h>
 #endif

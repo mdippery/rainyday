@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2016 Michael Dippery <michael@monkey-robot.com>
+ * Copyright (C) 2014-2019 Michael Dippery <michael@monkey-robot.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,13 +21,7 @@
  */
 
 #import <ScreenSaver/ScreenSaver.h>
-#import <WebKit/WebKit.h>
 
 
-@interface MPDRainDayView : ScreenSaverView <WebFrameLoadDelegate>
-{
-@private
-    WebView *_webView;
-}
-@property (readonly) NSURLRequest *request;
+@interface MPDRainDayView : ScreenSaverView
 @end

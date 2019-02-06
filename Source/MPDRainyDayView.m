@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2016 Michael Dippery <michael@monkey-robot.com>
+ * Copyright (C) 2014-2019 Michael Dippery <michael@monkey-robot.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,38 +33,26 @@
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
-        _webView = [[WebView alloc] initWithFrame:frame];
-        [_webView setFrameLoadDelegate:self];
+        // TODO: Configure
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [_webView release];
     [super dealloc];
-}
-
-- (NSURLRequest *)request
-{
-    NSURL *url = [NSURL URLWithString:@"http://maroslaw.github.io/rainyday.js/demo1.html"];
-    return [NSURLRequest requestWithURL:url];
 }
 
 #pragma mark Screen Saver
 
 - (void)startAnimation
 {
-    [_webView setAlphaValue:0.0];
-    [self addSubview:_webView];
-    [[_webView mainFrame] loadRequest:[self request]];
-    [super startAnimation];
+    // TODO: Animate
 }
 
 - (void)stopAnimation
 {
-    [super stopAnimation];
-    [_webView removeFromSuperview];
+    // TODO: Stop animate
 }
 
 - (BOOL)hasConfigureSheet
@@ -75,13 +63,6 @@
 - (NSWindow *)configureSheet
 {
     return nil;
-}
-
-#pragma mark WebFrame Load Delegate
-
-- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
-{
-    [_webView setAlphaValue:1.0];
 }
 
 @end
