@@ -55,7 +55,6 @@
         NSURL *url = [bundle URLForImageResource:@"DefaultBackground"];
         NSImage *sourceImage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
         NSImage *backgroundImage = [sourceImage stretchToFrame:[self frame]];
-        NSLog(@"Stretched frame: %@", NSStringFromRect([self frame]));
         NSImage *blurredImage = [backgroundImage gaussianBlurOfRadius:[self blurRadius]];
         _backgroundImageView = [[NSImageView alloc] initWithFrame:[self frame]];
         [_backgroundImageView setImage:blurredImage];

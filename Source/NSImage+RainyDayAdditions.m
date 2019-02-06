@@ -53,8 +53,7 @@
     
     CIImage *output = [filter valueForKey:@"outputImage"];
     NSRect frame = NSMakeRect(0, 0, [self size].width, [self size].height);
-    NSLog(@"Blur frame: %@", NSStringFromRect(frame));
-    [output drawInRect:frame fromRect:frame operation:NSCompositeSourceOver fraction:1.0];
+    [output drawInRect:frame fromRect:frame operation:NSCompositeCopy fraction:1.0];
     
     [self unlockFocus];
     return self;
