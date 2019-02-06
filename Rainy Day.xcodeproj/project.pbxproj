@@ -24,7 +24,7 @@
 		B7141175190A3FE0005A0B3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7141179190A3FE0005A0B3C /* RainyDay-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RainyDay-Prefix.pch"; sourceTree = "<group>"; };
 		B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPDRainyDayView.h; sourceTree = "<group>"; };
-		B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPDRainyDayView.m; sourceTree = "<group>"; };
+		B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPDRainyDayView.m; sourceTree = "<group>"; wrapsLines = 0; };
 		B7141185190A4155005A0B3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

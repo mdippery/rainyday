@@ -33,13 +33,22 @@
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
-        // TODO: Configure
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        NSURL *url = [bundle URLForImageResource:@"DefaultBackground"];
+        NSImage *sourceImage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
+        NSImageRep *sourceRep = [sourceImage bestRepresentationForRect:frame context:nil hints:nil];
+        NSImage *backgroundImage = [NSImage imageWithSize:frame.size flipped:NO drawingHandler:^BOOL(NSRect frame_) {
+            return [sourceRep drawInRect:frame_];
+        }];
+        backgroundImageView = [[NSImageView alloc] initWithFrame:frame];
+        [backgroundImageView setImage:backgroundImage];
     }
     return self;
 }
 
 - (void)dealloc
 {
+    [backgroundImageView release];
     [super dealloc];
 }
 
@@ -47,12 +56,14 @@
 
 - (void)startAnimation
 {
-    // TODO: Animate
+    [self addSubview:backgroundImageView];
+    [super startAnimation];
 }
 
 - (void)stopAnimation
 {
-    // TODO: Stop animate
+    [super stopAnimation];
+    [backgroundImageView removeFromSuperview];
 }
 
 - (BOOL)hasConfigureSheet

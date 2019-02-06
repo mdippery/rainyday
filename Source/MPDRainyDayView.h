@@ -24,4 +24,7 @@
 
 
 @interface MPDRainDayView : ScreenSaverView
+{
+    NSImageView *backgroundImageView;
+}
 @end
