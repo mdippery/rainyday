@@ -29,5 +29,4 @@
 }
 @property (readonly) CGFloat blurRadius;
 @property (strong, nonatomic) NSImageView *backgroundImageView;
-- (void)blurBackground;
 @end

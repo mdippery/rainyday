@@ -55,8 +55,10 @@
         NSURL *url = [bundle URLForImageResource:@"DefaultBackground"];
         NSImage *sourceImage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
         NSImage *backgroundImage = [sourceImage stretchToFrame:[self frame]];
+        NSLog(@"Stretched frame: %@", NSStringFromRect([self frame]));
+        NSImage *blurredImage = [backgroundImage gaussianBlurOfRadius:[self blurRadius]];
         _backgroundImageView = [[NSImageView alloc] initWithFrame:[self frame]];
-        [_backgroundImageView setImage:backgroundImage];
+        [_backgroundImageView setImage:blurredImage];
     }
 
     return _backgroundImageView;
@@ -73,17 +75,11 @@
     return 10.0;
 }
 
-- (void)blurBackground
-{
-    [[[self backgroundImageView] image] gaussianBlurOfRadius:[self blurRadius]];
-}
-
 #pragma mark Screen Saver
 
 - (void)startAnimation
 {
     [self addSubview:[self backgroundImageView]];
-    [self blurBackground];
     [super startAnimation];
 }
 
