@@ -57,14 +57,20 @@
     return [NSBundle bundleForClass:[self class]];
 }
 
+- (NSURL *)backgroundImageURL
+{
+    return [[self bundle] URLForImageResource:@"DefaultBackground"];
+}
+
+- (NSImage *)backgroundImage
+{
+    return [[NSImage imageWithContentsOfURL:[self backgroundImageURL]] stretchToFrame:[self frame]];
+}
+
 - (NSImageView *)backgroundImageView
 {
     if (!_backgroundImageView) {
-        NSLog(@"Loading background image");
-        NSURL *url = [[self bundle] URLForImageResource:@"DefaultBackground"];
-        NSImage *sourceImage = [NSImage imageWithContentsOfURL:url];
-        NSImage *backgroundImage = [sourceImage stretchToFrame:[self frame]];
-        NSImage *blurredImage = [backgroundImage gaussianBlurOfRadius:[self blurRadius]];
+        NSImage *blurredImage = [[self backgroundImage] gaussianBlurOfRadius:[self blurRadius]];
         _backgroundImageView = [[NSImageView alloc] initWithFrame:[self frame]];
         [_backgroundImageView setImage:blurredImage];
     }
