@@ -47,12 +47,21 @@
     [super dealloc];
 }
 
+- (CGFloat)blurRadius
+{
+    return 10.0;
+}
+
+- (NSBundle *)bundle
+{
+    return [NSBundle bundleForClass:[self class]];
+}
+
 - (NSImageView *)backgroundImageView
 {
     if (!_backgroundImageView) {
         NSLog(@"Loading background image");
-        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-        NSURL *url = [bundle URLForImageResource:@"DefaultBackground"];
+        NSURL *url = [[self bundle] URLForImageResource:@"DefaultBackground"];
         NSImage *sourceImage = [NSImage imageWithContentsOfURL:url];
         NSImage *backgroundImage = [sourceImage stretchToFrame:[self frame]];
         NSImage *blurredImage = [backgroundImage gaussianBlurOfRadius:[self blurRadius]];
@@ -67,11 +76,6 @@
 {
     [_backgroundImageView release];
     _backgroundImageView = [backgroundImageView retain];
-}
-
-- (CGFloat)blurRadius
-{
-    return 10.0;
 }
 
 #pragma mark Screen Saver
