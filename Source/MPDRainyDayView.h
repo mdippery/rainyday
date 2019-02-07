@@ -26,10 +26,12 @@
 @interface MPDRainDayView : ScreenSaverView
 {
     NSImageView *_backgroundImageView;
+    NSImageView *_reflectionView;
 }
 @property (readonly) CGFloat blurRadius;
 @property (readonly) NSBundle *bundle;
 @property (readonly) NSURL *backgroundImageURL;
 @property (readonly) NSImage *backgroundImage;
 @property (strong, nonatomic) NSImageView *backgroundImageView;
+@property (strong, nonatomic) NSImageView *reflectionView;
 @end

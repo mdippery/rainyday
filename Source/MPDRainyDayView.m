@@ -37,6 +37,7 @@
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
         [self setBackgroundImageView:nil];
+        [self setReflectionView:nil];
     }
     return self;
 }
@@ -44,6 +45,7 @@
 - (void)dealloc
 {
     [_backgroundImageView release];
+    [_reflectionView release];
     [super dealloc];
 }
 
@@ -84,11 +86,29 @@
     _backgroundImageView = [backgroundImageView retain];
 }
 
+- (NSImageView *)reflectionView
+{
+    if (!_reflectionView) {
+        NSImage *flippedImage = [[self backgroundImage] flipVertically];
+        _reflectionView = [[NSImageView alloc] initWithFrame:[self frame]];
+        [_reflectionView setImage:flippedImage];
+        [_reflectionView setAlphaValue:0.0];
+    }
+    return _reflectionView;
+}
+
+- (void)setReflectionView:(NSImageView *)reflectionView
+{
+    [_reflectionView release];
+    _reflectionView = [_reflectionView retain];
+}
+
 #pragma mark Screen Saver
 
 - (void)startAnimation
 {
     [self addSubview:[self backgroundImageView]];
+    [self addSubview:[self reflectionView]];
     [super startAnimation];
 }
 
@@ -96,7 +116,9 @@
 {
     [super stopAnimation];
     [[self backgroundImageView] removeFromSuperview];
+    [[self reflectionView] removeFromSuperview];
     [self setBackgroundImageView:nil];
+    [self setReflectionView:nil];
 }
 
 - (BOOL)hasConfigureSheet
