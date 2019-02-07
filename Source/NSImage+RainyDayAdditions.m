@@ -38,6 +38,8 @@
 
 - (NSImage *)stretchToFrame:(NSRect)frame
 {
+    // See: https://gist.github.com/raphaelhanneken/cb924aa280f4b9dbb480
+
     NSImageRep *sourceRep = [self bestRepresentationForRect:frame context:nil hints:nil];
     NSImage *backgroundImage = [NSImage imageWithSize:frame.size flipped:NO drawingHandler:^BOOL(NSRect frame_) {
         return [sourceRep drawInRect:frame_];
