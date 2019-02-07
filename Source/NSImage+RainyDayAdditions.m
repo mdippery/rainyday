@@ -52,21 +52,22 @@
 {
     // See: https://gist.github.com/TomLiu/7635912
 
-    [self lockFocus];
+    NSImage *image = [[NSImage alloc] initWithSize:[self size]];
+    [image lockFocus];
 
-    CIImage *image = [CIImage imageWithData:[self TIFFRepresentation]];
+    CIImage *sourceImage = [CIImage imageWithData:[self TIFFRepresentation]];
 
     CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
     [filter setDefaults];
-    [filter setValue:image forKey:kCIInputImageKey];
+    [filter setValue:sourceImage forKey:kCIInputImageKey];
     [filter setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
     
     CIImage *output = [filter valueForKey:@"outputImage"];
     NSRect frame = NSMakeRect(0, 0, [self size].width, [self size].height);
     [output drawInRect:frame fromRect:frame operation:NSCompositeCopy fraction:1.0];
     
-    [self unlockFocus];
-    return self;
+    [image unlockFocus];
+    return [image autorelease];
 }
 
 
