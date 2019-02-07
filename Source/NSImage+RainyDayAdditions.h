@@ -23,6 +23,10 @@
 #import <Cocoa/Cocoa.h>
 
 
+@interface NSImage (Convenience)
++ (NSImage *)imageWithContentsOfURL:(NSURL *)url;
+@end
+
 @interface NSImage (Scaling)
 - (NSImage *)stretchToFrame:(NSRect)frame;
 @end

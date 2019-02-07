@@ -24,6 +24,16 @@
 #import "NSImage+RainyDayAdditions.h"
 
 
+@implementation NSImage (Convenience)
+
++ (NSImage *)imageWithContentsOfURL:(NSURL *)url
+{
+    return [[[self alloc] initWithContentsOfURL:url] autorelease];
+}
+
+@end
+
+
 @implementation NSImage (Scaling)
 
 - (NSImage *)stretchToFrame:(NSRect)frame

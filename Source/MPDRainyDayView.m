@@ -53,7 +53,7 @@
         NSLog(@"Loading background image");
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
         NSURL *url = [bundle URLForImageResource:@"DefaultBackground"];
-        NSImage *sourceImage = [[[NSImage alloc] initWithContentsOfURL:url] autorelease];
+        NSImage *sourceImage = [NSImage imageWithContentsOfURL:url];
         NSImage *backgroundImage = [sourceImage stretchToFrame:[self frame]];
         NSImage *blurredImage = [backgroundImage gaussianBlurOfRadius:[self blurRadius]];
         _backgroundImageView = [[NSImageView alloc] initWithFrame:[self frame]];
