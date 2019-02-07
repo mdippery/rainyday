@@ -55,9 +55,9 @@
 - (NSImage *)gaussianBlurOfRadius:(CGFloat)radius
 {
     [self lockFocus];
-    
-    CIImage *image = [[CIImage alloc] initWithData:[self TIFFRepresentation]];
-    
+
+    CIImage *image = [CIImage imageWithData:[self TIFFRepresentation]];
+
     CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
     [filter setDefaults];
     [filter setValue:image forKey:kCIInputImageKey];
