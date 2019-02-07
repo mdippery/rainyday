@@ -34,7 +34,7 @@
 @end
 
 
-@implementation NSImage (Scaling)
+@implementation NSImage (Transform)
 
 - (NSImage *)stretchToFrame:(NSRect)frame
 {
@@ -47,10 +47,6 @@
     return backgroundImage;
 }
 
-@end
-
-
-@implementation NSImage (Blur)
 
 - (NSImage *)gaussianBlurOfRadius:(CGFloat)radius
 {
@@ -71,10 +67,6 @@
     return self;
 }
 
-@end
-
-
-@implementation NSImage (Flipped)
 
 - (NSImage *)flipVertically
 {

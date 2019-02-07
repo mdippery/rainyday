@@ -27,14 +27,8 @@
 + (NSImage *)imageWithContentsOfURL:(NSURL *)url;
 @end
 
-@interface NSImage (Scaling)
+@interface NSImage (Transform)
 - (NSImage *)stretchToFrame:(NSRect)frame;
-@end
-
-@interface NSImage (Blur)
 - (NSImage *)gaussianBlurOfRadius:(CGFloat)radius;
-@end
-
-@interface NSImage (Flipped)
 - (NSImage *)flipVertically;
 @end
