@@ -50,6 +50,8 @@
 
 - (NSImage *)gaussianBlurOfRadius:(CGFloat)radius
 {
+    // See: https://gist.github.com/TomLiu/7635912
+
     [self lockFocus];
 
     CIImage *image = [CIImage imageWithData:[self TIFFRepresentation]];
