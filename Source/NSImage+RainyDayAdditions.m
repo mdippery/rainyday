@@ -72,3 +72,26 @@
 }
 
 @end
+
+
+@implementation NSImage (Flipped)
+
+- (NSImage *)flipVertically
+{
+    // See: https://stackoverflow.com/a/36451059/28804
+
+    NSImage *image = [[NSImage alloc] initWithSize:[self size]];
+    NSRect frame = NSMakeRect(0.0, 0.0, [self size].width, [self size].height);
+    NSAffineTransformStruct flip = { 1.0, 0.0, 0.0, -1.0, 0.0, [self size].height };
+    NSAffineTransform *transform = [NSAffineTransform transform];
+
+    [image lockFocus];
+    [transform setTransformStruct:flip];
+    [transform concat];
+    [self drawAtPoint:NSZeroPoint fromRect:frame operation:NSCompositeCopy fraction:1.0];
+    [image unlockFocus];
+
+    return [image autorelease];
+}
+
+@end

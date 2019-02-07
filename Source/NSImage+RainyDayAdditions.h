@@ -34,3 +34,7 @@
 @interface NSImage (Blur)
 - (NSImage *)gaussianBlurOfRadius:(CGFloat)radius;
 @end
+
+@interface NSImage (Flipped)
+- (NSImage *)flipVertically;
+@end
