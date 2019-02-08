@@ -54,18 +54,18 @@
 
     NSImage *image = [[NSImage alloc] initWithSize:[self size]];
     [image lockFocus];
+    {
+        CIImage *sourceImage = [CIImage imageWithData:[self TIFFRepresentation]];
 
-    CIImage *sourceImage = [CIImage imageWithData:[self TIFFRepresentation]];
+        CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+        [filter setDefaults];
+        [filter setValue:sourceImage forKey:kCIInputImageKey];
+        [filter setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
 
-    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
-    [filter setDefaults];
-    [filter setValue:sourceImage forKey:kCIInputImageKey];
-    [filter setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
-    
-    CIImage *output = [filter valueForKey:@"outputImage"];
-    NSRect frame = NSMakeRect(0, 0, [self size].width, [self size].height);
-    [output drawInRect:frame fromRect:frame operation:NSCompositeCopy fraction:1.0];
-    
+        CIImage *output = [filter valueForKey:@"outputImage"];
+        NSRect frame = NSMakeRect(0, 0, [self size].width, [self size].height);
+        [output drawInRect:frame fromRect:frame operation:NSCompositeCopy fraction:1.0];
+    }
     [image unlockFocus];
     return [image autorelease];
 }
@@ -81,9 +81,11 @@
     NSAffineTransform *transform = [NSAffineTransform transform];
 
     [image lockFocus];
-    [transform setTransformStruct:flip];
-    [transform concat];
-    [self drawAtPoint:NSZeroPoint fromRect:frame operation:NSCompositeCopy fraction:1.0];
+    {
+        [transform setTransformStruct:flip];
+        [transform concat];
+        [self drawAtPoint:NSZeroPoint fromRect:frame operation:NSCompositeCopy fraction:1.0];
+    }
     [image unlockFocus];
 
     return [image autorelease];
