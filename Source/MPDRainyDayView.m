@@ -49,6 +49,9 @@
     [super dealloc];
 }
 
+
+# pragma mark Properties
+
 - (CGFloat)blurRadius
 {
     return 10.0;
@@ -102,6 +105,7 @@
     [_reflectionView release];
     _reflectionView = [_reflectionView retain];
 }
+
 
 #pragma mark Screen Saver
 
