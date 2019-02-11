@@ -27,6 +27,7 @@
 {
     NSImageView *_backgroundImageView;
     NSImageView *_reflectionView;
+    NSView *_glassView;
 }
 
 @property (readonly) CGFloat blurRadius;
@@ -36,5 +37,6 @@
 
 @property (strong, nonatomic) NSImageView *backgroundImageView;
 @property (strong, nonatomic) NSImageView *reflectionView;
+@property (strong, nonatomic) NSView *glassView;
 
 @end

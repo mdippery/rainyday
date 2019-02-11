@@ -46,6 +46,7 @@
 {
     [_backgroundImageView release];
     [_reflectionView release];
+    [_glassView release];
     [super dealloc];
 }
 
@@ -95,7 +96,6 @@
         NSImage *flippedImage = [[self backgroundImage] flipVertically];
         _reflectionView = [[NSImageView alloc] initWithFrame:[self frame]];
         [_reflectionView setImage:flippedImage];
-        [_reflectionView setAlphaValue:0.0];
     }
     return _reflectionView;
 }
@@ -106,6 +106,21 @@
     _reflectionView = [_reflectionView retain];
 }
 
+- (NSView *)glassView
+{
+    if (!_glassView) {
+        _glassView = [[NSView alloc] initWithFrame:[self frame]];
+        //[[_glassView layer] setOpacity:0.0];
+    }
+    return _glassView;
+}
+
+- (void)setGlassView:(NSView *)glassView
+{
+    [_glassView release];
+    _glassView = [_glassView retain];
+}
+
 
 #pragma mark Screen Saver
 
@@ -113,16 +128,23 @@
 {
     [self addSubview:[self backgroundImageView]];
     [self addSubview:[self reflectionView]];
+
+    [[self reflectionView] setWantsLayer:YES];
+    [[self reflectionView] addSubview:[self glassView]];
+    [[[self reflectionView] layer] setMask:[[self glassView] layer]];
+
     [super startAnimation];
 }
 
 - (void)stopAnimation
 {
     [super stopAnimation];
+    [[self glassView] removeFromSuperview];
     [[self backgroundImageView] removeFromSuperview];
     [[self reflectionView] removeFromSuperview];
     [self setBackgroundImageView:nil];
     [self setReflectionView:nil];
+    [self setGlassView:nil];
 }
 
 - (BOOL)hasConfigureSheet
