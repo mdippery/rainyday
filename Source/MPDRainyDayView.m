@@ -55,8 +55,6 @@
 
 # pragma mark Properties
 
-@synthesize frame;
-
 - (CGFloat)blurRadius
 {
     return 10.0;
