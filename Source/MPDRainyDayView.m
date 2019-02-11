@@ -22,6 +22,7 @@
 
 #import "MPDRainyDayView.h"
 #import "NSImage+RainyDayAdditions.h"
+#import "NSObject+RainyDayAdditions.h"
 
 
 @implementation MPDRainDayView
@@ -56,11 +57,6 @@
 - (CGFloat)blurRadius
 {
     return 10.0;
-}
-
-- (NSBundle *)bundle
-{
-    return [NSBundle bundleForClass:[self class]];
 }
 
 - (NSURL *)backgroundImageURL

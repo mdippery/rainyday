@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2019 Michael Dippery <michael@monkey-robot.com>
+ * Copyright (C) 2019 Michael Dippery <michael@monkey-robot.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,22 +20,9 @@
  * THE SOFTWARE.
  */
 
-#import <ScreenSaver/ScreenSaver.h>
+#import <Foundation/Foundation.h>
 
 
-@interface MPDRainDayView : ScreenSaverView
-{
-    NSImageView *_backgroundImageView;
-    NSImageView *_reflectionView;
-    NSView *_glassView;
-}
-
-@property (readonly) CGFloat blurRadius;
-@property (readonly) NSURL *backgroundImageURL;
-@property (readonly) NSImage *backgroundImage;
-
-@property (strong, nonatomic) NSImageView *backgroundImageView;
-@property (strong, nonatomic) NSImageView *reflectionView;
-@property (strong, nonatomic) NSView *glassView;
-
+@interface NSObject (RainyDay)
+- (NSBundle *)bundle;
 @end
