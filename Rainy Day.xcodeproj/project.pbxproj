@@ -63,11 +63,20 @@
 			path = Source;
 			sourceTree = SOURCE_ROOT;
 		};
+		A2DBC18722122BEE00AE9802 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = Source;
+			sourceTree = SOURCE_ROOT;
+		};
 		B714115D190A3FE0005A0B3C = {
 			isa = PBXGroup;
 			children = (
 				B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */,
 				B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */,
+				A2DBC18722122BEE00AE9802 /* Views */,
 				A2DBC186221220EE00AE9802 /* Additions */,
 				B7141183190A4102005A0B3C /* Resources */,
 				B7141174190A3FE0005A0B3C /* Supporting Files */,
