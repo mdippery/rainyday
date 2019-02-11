@@ -21,7 +21,7 @@
  */
 
 #import <CoreImage/CoreImage.h>
-#import "NSImage+RainyDayAdditions.h"
+#import "NSImage+RainyDay.h"
 
 
 @implementation NSImage (Convenience)

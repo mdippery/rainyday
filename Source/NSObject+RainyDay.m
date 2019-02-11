@@ -21,7 +21,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "NSObject+RainyDayAdditions.h"
+#import "NSObject+RainyDay.h"
 
 
 @implementation NSObject (RainyDay)

@@ -21,18 +21,19 @@
  */
 
 #import "MPDRainyDayView.h"
-#import "NSImage+RainyDayAdditions.h"
-#import "NSObject+RainyDayAdditions.h"
+#import "NSImage+RainyDay.h"
+#import "NSObject+RainyDay.h"
 
 
 @implementation MPDRainDayView
-
-@synthesize frame;
 
 + (BOOL)performGammaFade
 {
     return YES;
 }
+
+
+#pragma mark Lifecycle
 
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
@@ -53,6 +54,8 @@
 
 
 # pragma mark Properties
+
+@synthesize frame;
 
 - (CGFloat)blurRadius
 {

@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		A2AE01E2220A661F003F99D0 /* DefaultBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2AE01E1220A661F003F99D0 /* DefaultBackground.jpg */; };
-		A2AE01E8220B902D003F99D0 /* NSImage+RainyDayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AE01E6220B902D003F99D0 /* NSImage+RainyDayAdditions.m */; };
+		A2AE01E8220B902D003F99D0 /* NSImage+RainyDay.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AE01E6220B902D003F99D0 /* NSImage+RainyDay.m */; };
 		A2AE01EA220B94E5003F99D0 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2AE01E9220B94E5003F99D0 /* CoreImage.framework */; };
 		A2AE01F6220E5D73003F99D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A2AE01F8220E5D73003F99D0 /* InfoPlist.strings */; };
-		A2AE01FF2211FE85003F99D0 /* NSObject+RainyDayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A2AE01FD2211FE84003F99D0 /* NSObject+RainyDayAdditions.h */; };
-		A2AE02002211FE85003F99D0 /* NSObject+RainyDayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AE01FE2211FE85003F99D0 /* NSObject+RainyDayAdditions.m */; };
+		A2AE01FF2211FE85003F99D0 /* NSObject+RainyDay.h in Headers */ = {isa = PBXBuildFile; fileRef = A2AE01FD2211FE84003F99D0 /* NSObject+RainyDay.h */; };
+		A2AE02002211FE85003F99D0 /* NSObject+RainyDay.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AE01FE2211FE85003F99D0 /* NSObject+RainyDay.m */; };
 		B714116C190A3FE0005A0B3C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116B190A3FE0005A0B3C /* Cocoa.framework */; };
 		B714116E190A3FE0005A0B3C /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B714116D190A3FE0005A0B3C /* ScreenSaver.framework */; };
 		B714117C190A3FE0005A0B3C /* MPDRainyDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */; };
@@ -20,12 +20,12 @@
 
 /* Begin PBXFileReference section */
 		A2AE01E1220A661F003F99D0 /* DefaultBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultBackground.jpg; sourceTree = "<group>"; };
-		A2AE01E5220B902D003F99D0 /* NSImage+RainyDayAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+RainyDayAdditions.h"; sourceTree = "<group>"; };
-		A2AE01E6220B902D003F99D0 /* NSImage+RainyDayAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+RainyDayAdditions.m"; sourceTree = "<group>"; };
+		A2AE01E5220B902D003F99D0 /* NSImage+RainyDay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+RainyDay.h"; sourceTree = "<group>"; };
+		A2AE01E6220B902D003F99D0 /* NSImage+RainyDay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+RainyDay.m"; sourceTree = "<group>"; };
 		A2AE01E9220B94E5003F99D0 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		A2AE01F7220E5D73003F99D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A2AE01FD2211FE84003F99D0 /* NSObject+RainyDayAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+RainyDayAdditions.h"; sourceTree = "<group>"; };
-		A2AE01FE2211FE85003F99D0 /* NSObject+RainyDayAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RainyDayAdditions.m"; sourceTree = "<group>"; };
+		A2AE01FD2211FE84003F99D0 /* NSObject+RainyDay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+RainyDay.h"; sourceTree = "<group>"; };
+		A2AE01FE2211FE85003F99D0 /* NSObject+RainyDay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RainyDay.m"; sourceTree = "<group>"; };
 		B7141168190A3FE0005A0B3C /* Rainy Day.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rainy Day.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B714116B190A3FE0005A0B3C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B714116D190A3FE0005A0B3C /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
@@ -33,8 +33,8 @@
 		B7141172190A3FE0005A0B3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B7141175190A3FE0005A0B3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7141179190A3FE0005A0B3C /* RainyDay-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RainyDay-Prefix.pch"; sourceTree = "<group>"; };
-		B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPDRainyDayView.h; sourceTree = "<group>"; };
-		B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPDRainyDayView.m; sourceTree = "<group>"; wrapsLines = 0; };
+		B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MPDRainyDayView.h; path = Source/MPDRainyDayView.h; sourceTree = SOURCE_ROOT; };
+		B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MPDRainyDayView.m; path = Source/MPDRainyDayView.m; sourceTree = "<group>"; wrapsLines = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +51,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2DBC186221220EE00AE9802 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				A2AE01E5220B902D003F99D0 /* NSImage+RainyDay.h */,
+				A2AE01E6220B902D003F99D0 /* NSImage+RainyDay.m */,
+				A2AE01FD2211FE84003F99D0 /* NSObject+RainyDay.h */,
+				A2AE01FE2211FE85003F99D0 /* NSObject+RainyDay.m */,
+			);
+			name = Additions;
+			path = Source;
+			sourceTree = SOURCE_ROOT;
+		};
 		B714115D190A3FE0005A0B3C = {
 			isa = PBXGroup;
 			children = (
-				B7141182190A409E005A0B3C /* Source */,
+				B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */,
+				B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */,
+				A2DBC186221220EE00AE9802 /* Additions */,
 				B7141183190A4102005A0B3C /* Resources */,
 				B7141174190A3FE0005A0B3C /* Supporting Files */,
 				B714116A190A3FE0005A0B3C /* Frameworks */,
@@ -99,19 +113,6 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		B7141182190A409E005A0B3C /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				B714117A190A3FE0005A0B3C /* MPDRainyDayView.h */,
-				B714117B190A3FE0005A0B3C /* MPDRainyDayView.m */,
-				A2AE01E5220B902D003F99D0 /* NSImage+RainyDayAdditions.h */,
-				A2AE01E6220B902D003F99D0 /* NSImage+RainyDayAdditions.m */,
-				A2AE01FD2211FE84003F99D0 /* NSObject+RainyDayAdditions.h */,
-				A2AE01FE2211FE85003F99D0 /* NSObject+RainyDayAdditions.m */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
 		B7141183190A4102005A0B3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +130,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2AE01FF2211FE85003F99D0 /* NSObject+RainyDayAdditions.h in Headers */,
+				A2AE01FF2211FE85003F99D0 /* NSObject+RainyDay.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +209,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2AE01E8220B902D003F99D0 /* NSImage+RainyDayAdditions.m in Sources */,
-				A2AE02002211FE85003F99D0 /* NSObject+RainyDayAdditions.m in Sources */,
+				A2AE01E8220B902D003F99D0 /* NSImage+RainyDay.m in Sources */,
+				A2AE02002211FE85003F99D0 /* NSObject+RainyDay.m in Sources */,
 				B714117C190A3FE0005A0B3C /* MPDRainyDayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
