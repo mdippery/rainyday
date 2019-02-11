@@ -38,17 +38,27 @@
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
-        [self setBackgroundImageView:nil];
-        [self setReflectionView:nil];
+        NSImage *blurredImage = [[self backgroundImage] gaussianBlurOfRadius:[self blurRadius]];
+        NSImageView *blurredView = [[NSImageView alloc] initWithFrame:[self frame]];
+        [blurredView setImage:blurredImage];
+        [self setBackgroundImageView:blurredView];
+
+        NSImage *flippedImage = [[self backgroundImage] flipVertically];
+        NSImageView *flippedView = [[NSImageView alloc] initWithFrame:[self frame]];
+        [flippedView setImage:flippedImage];
+        [self setReflectionView:flippedView];
+
+        NSView *glassView = [[NSView alloc] initWithFrame:[self frame]];
+        [self setGlassView:glassView];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [_backgroundImageView release];
-    [_reflectionView release];
-    [_glassView release];
+    [self setBackgroundImageView:nil];
+    [self setReflectionView:nil];
+    [self setGlassView:nil];
     [super dealloc];
 }
 
@@ -70,54 +80,6 @@
     return [[NSImage imageWithContentsOfURL:[self backgroundImageURL]] stretchToFrame:[self frame]];
 }
 
-- (NSImageView *)backgroundImageView
-{
-    if (!_backgroundImageView) {
-        NSImage *blurredImage = [[self backgroundImage] gaussianBlurOfRadius:[self blurRadius]];
-        _backgroundImageView = [[NSImageView alloc] initWithFrame:[self frame]];
-        [_backgroundImageView setImage:blurredImage];
-    }
-
-    return _backgroundImageView;
-}
-
-- (void)setBackgroundImageView:(NSImageView *)backgroundImageView
-{
-    [_backgroundImageView release];
-    _backgroundImageView = [backgroundImageView retain];
-}
-
-- (NSImageView *)reflectionView
-{
-    if (!_reflectionView) {
-        NSImage *flippedImage = [[self backgroundImage] flipVertically];
-        _reflectionView = [[NSImageView alloc] initWithFrame:[self frame]];
-        [_reflectionView setImage:flippedImage];
-    }
-    return _reflectionView;
-}
-
-- (void)setReflectionView:(NSImageView *)reflectionView
-{
-    [_reflectionView release];
-    _reflectionView = [_reflectionView retain];
-}
-
-- (NSView *)glassView
-{
-    if (!_glassView) {
-        _glassView = [[NSView alloc] initWithFrame:[self frame]];
-        //[[_glassView layer] setOpacity:0.0];
-    }
-    return _glassView;
-}
-
-- (void)setGlassView:(NSView *)glassView
-{
-    [_glassView release];
-    _glassView = [_glassView retain];
-}
-
 
 #pragma mark Screen Saver
 
@@ -136,12 +98,10 @@
 - (void)stopAnimation
 {
     [super stopAnimation];
+
     [[self glassView] removeFromSuperview];
     [[self backgroundImageView] removeFromSuperview];
     [[self reflectionView] removeFromSuperview];
-    [self setBackgroundImageView:nil];
-    [self setReflectionView:nil];
-    [self setGlassView:nil];
 }
 
 - (BOOL)hasConfigureSheet
