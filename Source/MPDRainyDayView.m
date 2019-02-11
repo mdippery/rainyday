@@ -39,16 +39,16 @@
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
         NSImage *blurredImage = [[self backgroundImage] gaussianBlurOfRadius:[self blurRadius]];
-        NSImageView *blurredView = [[NSImageView alloc] initWithFrame:[self frame]];
+        NSImageView *blurredView = [[[NSImageView alloc] initWithFrame:[self frame]] autorelease];
         [blurredView setImage:blurredImage];
         [self setBackgroundImageView:blurredView];
 
         NSImage *flippedImage = [[self backgroundImage] flipVertically];
-        NSImageView *flippedView = [[NSImageView alloc] initWithFrame:[self frame]];
+        NSImageView *flippedView = [[[NSImageView alloc] initWithFrame:[self frame]] autorelease];
         [flippedView setImage:flippedImage];
         [self setReflectionView:flippedView];
 
-        NSView *glassView = [[NSView alloc] initWithFrame:[self frame]];
+        NSView *glassView = [[[NSView alloc] initWithFrame:[self frame]] autorelease];
         [self setGlassView:glassView];
     }
     return self;
