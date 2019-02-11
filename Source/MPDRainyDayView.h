@@ -32,6 +32,5 @@
 
 @property (strong, nonatomic) NSImageView *backgroundImageView;
 @property (strong, nonatomic) NSImageView *reflectionView;
-@property (strong, nonatomic) NSView *glassView;
 
 @end

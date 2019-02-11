@@ -47,9 +47,6 @@
         NSImageView *flippedView = [[[NSImageView alloc] initWithFrame:[self frame]] autorelease];
         [flippedView setImage:flippedImage];
         [self setReflectionView:flippedView];
-
-        NSView *glassView = [[[NSView alloc] initWithFrame:[self frame]] autorelease];
-        [self setGlassView:glassView];
     }
     return self;
 }
@@ -58,7 +55,6 @@
 {
     [self setBackgroundImageView:nil];
     [self setReflectionView:nil];
-    [self setGlassView:nil];
     [super dealloc];
 }
 
@@ -88,10 +84,6 @@
     [self addSubview:[self backgroundImageView]];
     [self addSubview:[self reflectionView]];
 
-    [[self reflectionView] setWantsLayer:YES];
-    [[self reflectionView] addSubview:[self glassView]];
-    [[[self reflectionView] layer] setMask:[[self glassView] layer]];
-
     [super startAnimation];
 }
 
@@ -99,7 +91,6 @@
 {
     [super stopAnimation];
 
-    [[self glassView] removeFromSuperview];
     [[self backgroundImageView] removeFromSuperview];
     [[self reflectionView] removeFromSuperview];
 }
