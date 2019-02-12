@@ -89,6 +89,11 @@
     return [[NSImage imageWithContentsOfURL:[self backgroundImageURL]] stretchToFrame:[self frame]];
 }
 
+- (CALayer *)glassLayer
+{
+    return [[[[self layer] sublayers] firstObject] mask];
+}
+
 
 #pragma mark Screen Saver
 

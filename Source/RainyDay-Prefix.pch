@@ -1,5 +1,5 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
-    #import <CoreImage/CoreImage.h>
+    #import <QuartzCore/QuartzCore.h>
     #import <ScreenSaver/ScreenSaver.h>
 #endif

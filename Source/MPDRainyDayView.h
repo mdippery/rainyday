@@ -21,6 +21,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <QuartzCore/QuartzCore.h>
 #import <ScreenSaver/ScreenSaver.h>
 
 
@@ -29,5 +30,7 @@
 @property (readonly) CGFloat blurRadius;
 @property (readonly) NSURL *backgroundImageURL;
 @property (readonly) NSImage *backgroundImage;
+
+@property (readonly) CALayer *glassLayer;
 
 @end
