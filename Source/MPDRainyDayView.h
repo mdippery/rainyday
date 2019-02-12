@@ -28,6 +28,9 @@
 @interface MPDRainDayView : ScreenSaverView <CALayerDelegate>
 
 @property (readonly) CGFloat blurRadius;
+@property (readonly) CGFloat frequency;
+@property (readonly) int maxRaindropSize;
+@property (readonly) int minRaindropSize;
 @property (readonly) NSURL *backgroundImageURL;
 @property (readonly) NSImage *backgroundImage;
 

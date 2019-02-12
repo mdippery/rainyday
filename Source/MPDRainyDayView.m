@@ -21,6 +21,7 @@
  */
 
 #import "MPDRainyDayView.h"
+#import "NSBezierPath+RainyDay.h"
 #import "NSImage+RainyDay.h"
 #import "NSObject+RainyDay.h"
 
@@ -80,6 +81,21 @@
     return 10.0;
 }
 
+- (CGFloat)frequency
+{
+    return 20.0;
+}
+
+- (int)maxRaindropSize
+{
+    return 25;
+}
+
+- (int)minRaindropSize
+{
+    return 10;
+}
+
 - (NSURL *)backgroundImageURL
 {
     return [[self bundle] URLForImageResource:@"DefaultBackground"];
@@ -95,6 +111,11 @@
     return [[[[self layer] sublayers] firstObject] mask];
 }
 
+- (NSTimeInterval)animationTimeInterval
+{
+    return 60.0 / [self frequency];
+}
+
 
 #pragma mark Screen Saver
 
@@ -108,7 +129,25 @@
     return nil;
 }
 
+- (void)animateOneFrame
+{
+    [[self glassLayer] setNeedsDisplay];
+}
+
 
 #pragma mark Layer Delegate
+
+- (void)displayLayer:(CALayer *)layer
+{
+    int size = SSRandomIntBetween([self minRaindropSize], [self maxRaindropSize]);
+    NSPoint p = SSRandomPointForSizeWithinRect(NSMakeSize(size, size), NSRectFromCGRect([layer frame]));
+    NSRect rect = NSMakeRect(p.x, p.y, size, size);
+
+    NSBezierPath *circle = [NSBezierPath bezierPathWithOvalInRect:rect];
+
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    [shapeLayer setPath:[circle quartzPath]];
+    [layer addSublayer:shapeLayer];
+}
 
 @end
