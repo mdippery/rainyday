@@ -25,7 +25,7 @@
 #import <ScreenSaver/ScreenSaver.h>
 
 
-@interface MPDRainDayView : ScreenSaverView
+@interface MPDRainDayView : ScreenSaverView <CALayerDelegate>
 
 @property (readonly) CGFloat blurRadius;
 @property (readonly) NSURL *backgroundImageURL;

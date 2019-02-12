@@ -64,7 +64,7 @@
 
         CIImage *output = [filter valueForKey:@"outputImage"];
         NSRect frame = NSMakeRect(0, 0, [self size].width, [self size].height);
-        [output drawInRect:frame fromRect:frame operation:NSCompositeCopy fraction:1.0];
+        [output drawInRect:frame fromRect:frame operation:NSCompositingOperationCopy fraction:1.0];
     }
     [image unlockFocus];
     return [image autorelease];
@@ -84,7 +84,7 @@
     {
         [transform setTransformStruct:flip];
         [transform concat];
-        [self drawAtPoint:NSZeroPoint fromRect:frame operation:NSCompositeCopy fraction:1.0];
+        [self drawAtPoint:NSZeroPoint fromRect:frame operation:NSCompositingOperationCopy fraction:1.0];
     }
     [image unlockFocus];
 

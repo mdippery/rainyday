@@ -47,6 +47,7 @@
         }];
 
         CALayer *glassLayer = [CALayer layer];
+        [glassLayer setDelegate:self];
         [glassLayer setFrame:frame];
         [glassLayer setContents:maskImage];
 
@@ -106,5 +107,8 @@
 {
     return nil;
 }
+
+
+#pragma mark Layer Delegate
 
 @end
