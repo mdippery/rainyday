@@ -39,22 +39,35 @@
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
         NSImage *blurredImage = [[self backgroundImage] gaussianBlurOfRadius:[self blurRadius]];
-        NSImageView *blurredView = [[[NSImageView alloc] initWithFrame:[self frame]] autorelease];
-        [blurredView setImage:blurredImage];
-        [self setBackgroundImageView:blurredView];
-
         NSImage *flippedImage = [[self backgroundImage] flipVertically];
-        NSImageView *flippedView = [[[NSImageView alloc] initWithFrame:[self frame]] autorelease];
-        [flippedView setImage:flippedImage];
-        [self setReflectionView:flippedView];
+        NSImage *maskImage = [NSImage imageWithSize:frame.size flipped:YES drawingHandler:^BOOL(NSRect frame_) {
+            [[NSColor clearColor] set];
+            NSRectFill(frame_);
+            return YES;
+        }];
+
+        CALayer *glassLayer = [CALayer layer];
+        [glassLayer setFrame:frame];
+        [glassLayer setContents:maskImage];
+
+        CALayer *reflectionLayer = [CALayer layer];
+        [reflectionLayer setFrame:frame];
+        [reflectionLayer setContents:flippedImage];
+        [reflectionLayer setMask:glassLayer];
+
+        CALayer *imageLayer = [CALayer layer];
+        [imageLayer setFrame:frame];
+        [imageLayer setContents:blurredImage];
+        [imageLayer addSublayer:reflectionLayer];
+
+        [self setWantsLayer:YES];
+        [self setLayer:imageLayer];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [self setBackgroundImageView:nil];
-    [self setReflectionView:nil];
     [super dealloc];
 }
 
@@ -78,22 +91,6 @@
 
 
 #pragma mark Screen Saver
-
-- (void)startAnimation
-{
-    [self addSubview:[self backgroundImageView]];
-    [self addSubview:[self reflectionView]];
-
-    [super startAnimation];
-}
-
-- (void)stopAnimation
-{
-    [super stopAnimation];
-
-    [[self backgroundImageView] removeFromSuperview];
-    [[self reflectionView] removeFromSuperview];
-}
 
 - (BOOL)hasConfigureSheet
 {
