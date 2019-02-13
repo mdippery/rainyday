@@ -39,42 +39,37 @@
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
+        NSImage *reflectionImage = [[[self backgroundImage] flipVertically] flipHorizontally];
+        [self setReflectionImage:reflectionImage];
+
         NSImage *blurredImage = [[self backgroundImage] gaussianBlurOfRadius:[self blurRadius]];
-        NSImage *flippedImage = [[[self backgroundImage] flipVertically] flipHorizontally];
-        NSImage *maskImage = [NSImage imageWithSize:frame.size flipped:YES drawingHandler:^BOOL(NSRect frame_) {
-            [[NSColor clearColor] set];
-            NSRectFill(frame_);
-            return YES;
-        }];
 
         CALayer *glassLayer = [CALayer layer];
         [glassLayer setDelegate:self];
         [glassLayer setFrame:frame];
-        [glassLayer setContents:maskImage];
+        [glassLayer setContents:[NSImage transparentImageWithSize:frame.size]];
 
-        CALayer *reflectionLayer = [CALayer layer];
-        [reflectionLayer setFrame:frame];
-        [reflectionLayer setContents:flippedImage];
-        [reflectionLayer setMask:glassLayer];
-
-        CALayer *imageLayer = [CALayer layer];
-        [imageLayer setFrame:frame];
-        [imageLayer setContents:blurredImage];
-        [imageLayer addSublayer:reflectionLayer];
+        CALayer *backgroundLayer = [CALayer layer];
+        [backgroundLayer setFrame:frame];
+        [backgroundLayer setContents:blurredImage];
+        [backgroundLayer addSublayer:glassLayer];
 
         [self setWantsLayer:YES];
-        [self setLayer:imageLayer];
+        [self setLayer:backgroundLayer];
     }
     return self;
 }
 
 - (void)dealloc
 {
+    [self setReflectionImage:nil];
     [super dealloc];
 }
 
 
 # pragma mark Properties
+
+@synthesize reflectionImage;
 
 - (CGFloat)blurRadius
 {
@@ -103,12 +98,12 @@
 
 - (NSImage *)backgroundImage
 {
-    return [[NSImage imageWithContentsOfURL:[self backgroundImageURL]] stretchToFrame:[self frame]];
+    return [[NSImage imageWithContentsOfURL:[self backgroundImageURL]] resizeToFrame:[self frame]];
 }
 
 - (CALayer *)glassLayer
 {
-    return [[[[self layer] sublayers] firstObject] mask];
+    return [[[self layer] sublayers] firstObject];
 }
 
 - (NSTimeInterval)animationTimeInterval
@@ -139,15 +134,31 @@
 
 - (void)displayLayer:(CALayer *)layer
 {
-    int size = SSRandomIntBetween([self minRaindropSize], [self maxRaindropSize]);
-    NSPoint p = SSRandomPointForSizeWithinRect(NSMakeSize(size, size), NSRectFromCGRect([layer frame]));
-    NSRect rect = NSMakeRect(p.x, p.y, size, size);
+    int d = SSRandomIntBetween([self minRaindropSize], [self maxRaindropSize]);
+    NSPoint p = SSRandomPointForSizeWithinRect(NSMakeSize(d, d), NSRectFromCGRect([layer frame]));
+    NSSize origSize = [[self backgroundImage] size];
 
-    NSBezierPath *circle = [NSBezierPath bezierPathWithOvalInRect:rect];
+    CGFloat scale = d / origSize.height;
+    NSSize size = NSMakeSize(origSize.width * scale, origSize.height * scale);
+    NSSize dropSize = NSMakeSize(d, d);
+    NSRect scaledFrame = NSMakeRect(0.0, 0.0, size.width, size.height);
+    NSRect squareFrame = NSMakeRect(p.x, p.y, dropSize.width, dropSize.height);
 
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    [shapeLayer setPath:[circle quartzPath]];
-    [layer addSublayer:shapeLayer];
+    NSImage *raindropImage = [[[self reflectionImage] resizeToFrame:scaledFrame] cropToSize:dropSize];
+
+    /* TODO: Use NSBezierPath to draw an imperfect circle.
+    NSBezierPath *circle = [NSBezierPath bezierPathWithOvalInRect:squareFrame];
+    CAShapeLayer *mask = [CAShapeLayer layer];
+    [mask setPath:[circle quartzPath]];
+    */
+
+    CALayer *raindrop = [CALayer layer];
+    [raindrop setFrame:squareFrame];
+    [raindrop setContents:raindropImage];
+    [raindrop setCornerRadius:dropSize.width / 2.0];
+    [raindrop setMasksToBounds:YES];
+
+    [layer addSublayer:raindrop];
 }
 
 @end

@@ -34,6 +34,7 @@
 @property (readonly) NSURL *backgroundImageURL;
 @property (readonly) NSImage *backgroundImage;
 
+@property (strong, nonatomic) NSImage *reflectionImage;
 @property (readonly) CALayer *glassLayer;
 
 @end

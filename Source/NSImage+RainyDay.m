@@ -21,6 +21,7 @@
  */
 
 #import <CoreImage/CoreImage.h>
+#import <ScreenSaver/ScreenSaver.h>
 #import "NSImage+RainyDay.h"
 
 
@@ -36,28 +37,65 @@
     return [[[self alloc] initWithContentsOfURL:url] autorelease];
 }
 
++ (NSImage *)imageWithSize:(NSSize)size
+{
+    return [[[self alloc] initWithSize:size] autorelease];
+}
+
++ (NSImage *)transparentImageWithSize:(NSSize)size
+{
+    return [NSImage imageWithSize:size flipped:YES drawingHandler:^BOOL(NSRect frame) {
+        [[NSColor clearColor] set];
+        NSRectFill(frame);
+        return YES;
+    }];
+}
+
 @end
 
 
 @implementation NSImage (Transform)
 
-- (NSImage *)stretchToFrame:(NSRect)frame
+- (NSImage *)resizeToFrame:(NSRect)frame
 {
     // See: https://gist.github.com/raphaelhanneken/cb924aa280f4b9dbb480
 
     NSImageRep *sourceRep = [self bestRepresentationForRect:frame context:nil hints:nil];
-    NSImage *backgroundImage = [NSImage imageWithSize:frame.size flipped:NO drawingHandler:^BOOL(NSRect frame_) {
+    NSImage *image = [NSImage imageWithSize:frame.size flipped:NO drawingHandler:^BOOL(NSRect frame_) {
         return [sourceRep drawInRect:frame_];
     }];
-    return backgroundImage;
+    return image;
 }
 
+- (NSImage *)cropToSize:(NSSize)size
+{
+    CGFloat maxX = [self size].width - size.width;
+    CGFloat maxY = [self size].height - size.height;
+
+    CGFloat x = SSRandomFloatBetween(0.0, maxX);
+    CGFloat y = SSRandomFloatBetween(0.0, maxY);
+    NSRect frame = NSMakeRect(x, y, size.width, size.height);
+
+    NSImage *image = [NSImage imageWithSize:size];
+
+    [image lockFocus];
+    {
+        [self drawInRect:NSMakeRect(0.0, 0.0, size.width, size.height)
+                fromRect:frame
+               operation:NSCompositingOperationCopy
+                fraction:1.0];
+    }
+    [image unlockFocus];
+
+    return image;
+}
 
 - (NSImage *)gaussianBlurOfRadius:(CGFloat)radius
 {
     // See: https://gist.github.com/TomLiu/7635912
 
-    NSImage *image = [[NSImage alloc] initWithSize:[self size]];
+    NSImage *image = [NSImage imageWithSize:[self size]];
+
     [image lockFocus];
     {
         CIImage *sourceImage = [CIImage imageWithData:[self TIFFRepresentation]];
@@ -68,11 +106,12 @@
         [filter setValue:[NSNumber numberWithFloat:radius] forKey:@"inputRadius"];
 
         CIImage *output = [filter valueForKey:@"outputImage"];
-        NSRect frame = NSMakeRect(0, 0, [self size].width, [self size].height);
+        NSRect frame = NSMakeRect(0.0, 0.0, [self size].width, [self size].height);
         [output drawInRect:frame fromRect:frame operation:NSCompositingOperationCopy fraction:1.0];
     }
     [image unlockFocus];
-    return [image autorelease];
+
+    return image;
 }
 
 - (NSImage *)flipVertically

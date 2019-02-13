@@ -25,10 +25,13 @@
 
 @interface NSImage (Convenience)
 + (NSImage *)imageWithContentsOfURL:(NSURL *)url;
++ (NSImage *)imageWithSize:(NSSize)size;
++ (NSImage *)transparentImageWithSize:(NSSize)size;
 @end
 
 @interface NSImage (Transform)
-- (NSImage *)stretchToFrame:(NSRect)frame;
+- (NSImage *)resizeToFrame:(NSRect)frame;
+- (NSImage *)cropToSize:(NSSize)size;
 - (NSImage *)gaussianBlurOfRadius:(CGFloat)radius;
 - (NSImage *)flipVertically;
 - (NSImage *)flipHorizontally;
