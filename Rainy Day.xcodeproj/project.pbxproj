@@ -169,6 +169,7 @@
 		B714115E190A3FE0005A0B3C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MPD;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Michael Dippery";
 			};
