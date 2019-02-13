@@ -40,7 +40,7 @@
 {
     if ((self = [super initWithFrame:frame isPreview:isPreview])) {
         NSImage *blurredImage = [[self backgroundImage] gaussianBlurOfRadius:[self blurRadius]];
-        NSImage *flippedImage = [[self backgroundImage] flipVertically];
+        NSImage *flippedImage = [[[self backgroundImage] flipVertically] flipHorizontally];
         NSImage *maskImage = [NSImage imageWithSize:frame.size flipped:YES drawingHandler:^BOOL(NSRect frame_) {
             [[NSColor clearColor] set];
             NSRectFill(frame_);

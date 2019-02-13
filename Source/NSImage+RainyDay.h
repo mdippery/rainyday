@@ -31,4 +31,5 @@
 - (NSImage *)stretchToFrame:(NSRect)frame;
 - (NSImage *)gaussianBlurOfRadius:(CGFloat)radius;
 - (NSImage *)flipVertically;
+- (NSImage *)flipHorizontally;
 @end

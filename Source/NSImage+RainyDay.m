@@ -24,6 +24,11 @@
 #import "NSImage+RainyDay.h"
 
 
+@interface NSImage (RainyDay)
+- (NSImage *)flipWithMatrix:(NSAffineTransformStruct)matrix;
+@end
+
+
 @implementation NSImage (Convenience)
 
 + (NSImage *)imageWithContentsOfURL:(NSURL *)url
@@ -70,19 +75,34 @@
     return [image autorelease];
 }
 
-
 - (NSImage *)flipVertically
+{
+    NSAffineTransformStruct matrix = { 1.0, 0.0, 0.0, -1.0, 0.0, [self size].height };
+    return [self flipWithMatrix:matrix];
+}
+
+- (NSImage *)flipHorizontally
+{
+    NSAffineTransformStruct matrix = { -1.0, 0.0, 0.0, 1.0, [self size].width, 0.0 };
+    return [self flipWithMatrix:matrix];
+}
+
+@end
+
+
+@implementation NSImage (RainyDay)
+
+- (NSImage *)flipWithMatrix:(NSAffineTransformStruct)matrix
 {
     // See: https://stackoverflow.com/a/36451059/28804
 
     NSImage *image = [[NSImage alloc] initWithSize:[self size]];
     NSRect frame = NSMakeRect(0.0, 0.0, [self size].width, [self size].height);
-    NSAffineTransformStruct flip = { 1.0, 0.0, 0.0, -1.0, 0.0, [self size].height };
     NSAffineTransform *transform = [NSAffineTransform transform];
 
     [image lockFocus];
     {
-        [transform setTransformStruct:flip];
+        [transform setTransformStruct:matrix];
         [transform concat];
         [self drawAtPoint:NSZeroPoint fromRect:frame operation:NSCompositingOperationCopy fraction:1.0];
     }
