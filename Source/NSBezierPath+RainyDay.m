@@ -30,6 +30,13 @@
 #define RADIUS_DELTA      1.5
 
 
+static BOOL
+is_at_origin(CGFloat angle)
+{
+    return angle <= CIRCLE_START || angle + ANGLE_DELTA >= CIRCLE_END;
+}
+
+
 @implementation NSBezierPath (RainyDay)
 
 + (NSBezierPath *)imperfectCircleInRect:(NSRect)frame
@@ -40,11 +47,13 @@
     NSBezierPath *path = [NSBezierPath bezierPath];
 
     for (int angle = CIRCLE_START; angle <= CIRCLE_END - ANGLE_DELTA; angle += ANGLE_DELTA) {
-        CGFloat r = SSRandomFloatBetween(radius - RADIUS_DELTA, radius);
-        if (angle == CIRCLE_START || angle + ANGLE_DELTA == CIRCLE_END) {
-            r = radius;
-        }
-        [path appendBezierPathWithArcWithCenter:center radius:r startAngle:angle endAngle:angle + ANGLE_DELTA];
+        CGFloat r = !is_at_origin(angle)
+                  ? SSRandomFloatBetween(radius - RADIUS_DELTA, radius)
+                  : radius;
+        [path appendBezierPathWithArcWithCenter:center
+                                         radius:r
+                                     startAngle:angle
+                                       endAngle:angle + ANGLE_DELTA];
     }
 
     [path closePath];
