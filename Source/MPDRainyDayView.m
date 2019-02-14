@@ -147,7 +147,7 @@
     NSImage *croppedImage = [[[self reflectionImage] resizeToFrame:scaledFrame] cropToSize:dropSize];
     NSRect croppedFrame = NSMakeRect(0.0, 0.0, [croppedImage size].width, [croppedImage size].height);
     NSImage *raindropImage = [NSImage imageWithSize:[croppedImage size]];
-    NSBezierPath *circle = [NSBezierPath bezierPathWithOvalInRect:croppedFrame];
+    NSBezierPath *circle = [NSBezierPath imperfectCircleInRect:croppedFrame];
 
     [raindropImage lockFocus];
     {
