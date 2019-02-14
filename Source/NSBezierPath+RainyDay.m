@@ -40,15 +40,6 @@ MPDMakePolarPoint(CGFloat rho, CGFloat phi)
 
 
 static MPDPolarPoint
-MPDMakePolarPointFromPoint(NSPoint pt)
-{
-    CGFloat rho = sqrt(pt.x * pt.x + pt.y * pt.y);
-    CGFloat phi = atan2(pt.x, pt.y);
-    return MPDMakePolarPoint(rho, phi);
-}
-
-
-static MPDPolarPoint
 MPDRotatePolarPoint(MPDPolarPoint pt, CGFloat angle)
 {
     return MPDMakePolarPoint(pt.rho, pt.phi + angle);
@@ -64,6 +55,13 @@ MPDMakePointFromPolarPoint(MPDPolarPoint p)
 }
 
 
+static NSPoint
+MPDAdjustPoint(NSPoint pt, NSPoint origin)
+{
+    return NSMakePoint(pt.x + origin.x, pt.y + origin.y);
+}
+
+
 @implementation NSBezierPath (RainyDay)
 
 + (NSBezierPath *)imperfectCircleInRect:(NSRect)frame
@@ -76,11 +74,11 @@ MPDMakePointFromPolarPoint(MPDPolarPoint p)
     [path moveToPoint:start];
 
     NSPoint current = start;
-    MPDPolarPoint polar = MPDMakePolarPointFromPoint(current);
+    MPDPolarPoint polar = MPDMakePolarPoint(0.0, 0.0);
 
     for (int i = 30; i <= 360; i += 30) {
         polar = MPDRotatePolarPoint(polar, i);
-        current = MPDMakePointFromPolarPoint(polar);
+        current = MPDAdjustPoint(MPDMakePointFromPolarPoint(polar), center);
         [path lineToPoint:current];
     }
 
