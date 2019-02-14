@@ -27,7 +27,7 @@
 #define CIRCLE_START      0
 #define CIRCLE_END      360
 #define ANGLE_DELTA       5
-#define RADIUS_DELTA      2.0
+#define RADIUS_DELTA      1.0
 
 
 @implementation NSBezierPath (RainyDay)
