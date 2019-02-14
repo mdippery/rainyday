@@ -144,19 +144,25 @@
     NSRect scaledFrame = NSMakeRect(0.0, 0.0, size.width, size.height);
     NSRect squareFrame = NSMakeRect(p.x, p.y, dropSize.width, dropSize.height);
 
-    NSImage *raindropImage = [[[self reflectionImage] resizeToFrame:scaledFrame] cropToSize:dropSize];
+    NSImage *croppedImage = [[[self reflectionImage] resizeToFrame:scaledFrame] cropToSize:dropSize];
+    NSRect croppedFrame = NSMakeRect(0.0, 0.0, [croppedImage size].width, [croppedImage size].height);
+    NSImage *raindropImage = [NSImage imageWithSize:[croppedImage size]];
+    NSBezierPath *circle = [NSBezierPath bezierPathWithOvalInRect:croppedFrame];
 
-    /* TODO: Use NSBezierPath to draw an imperfect circle.
-    NSBezierPath *circle = [NSBezierPath bezierPathWithOvalInRect:squareFrame];
-    CAShapeLayer *mask = [CAShapeLayer layer];
-    [mask setPath:[circle quartzPath]];
-    */
+    [raindropImage lockFocus];
+    {
+        [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
+        [circle addClip];
+        [croppedImage drawAtPoint:NSZeroPoint
+                         fromRect:croppedFrame
+                        operation:NSCompositingOperationCopy
+                         fraction:1.0];
+    }
+    [raindropImage unlockFocus];
 
     CALayer *raindrop = [CALayer layer];
     [raindrop setFrame:squareFrame];
     [raindrop setContents:raindropImage];
-    [raindrop setCornerRadius:dropSize.width / 2.0];
-    [raindrop setMasksToBounds:YES];
 
     [layer addSublayer:raindrop];
 }
