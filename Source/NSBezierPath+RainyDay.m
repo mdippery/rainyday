@@ -21,6 +21,13 @@
  */
 
 #import "NSBezierPath+RainyDay.h"
+#import <ScreenSaver/ScreenSaver.h>
+
+
+#define CIRCLE_START      0
+#define CIRCLE_END      360
+#define ANGLE_DELTA       5
+#define RADIUS_DELTA      2.0
 
 
 @implementation NSBezierPath (RainyDay)
@@ -32,8 +39,9 @@
 
     NSBezierPath *path = [NSBezierPath bezierPath];
 
-    for (int angle = 0; angle <= 330; angle += 30) {
-        [path appendBezierPathWithArcWithCenter:center radius:radius startAngle:angle endAngle:angle + 30];
+    for (int angle = CIRCLE_START; angle <= CIRCLE_END - ANGLE_DELTA; angle += ANGLE_DELTA) {
+        CGFloat r = SSRandomFloatBetween(radius - RADIUS_DELTA, radius + RADIUS_DELTA);
+        [path appendBezierPathWithArcWithCenter:center radius:r startAngle:angle endAngle:angle + ANGLE_DELTA];
     }
 
     [path closePath];
