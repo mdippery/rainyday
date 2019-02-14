@@ -47,12 +47,6 @@ MPDMakePolarPointFromPoint(NSPoint pt)
     return MPDMakePolarPoint(rho, phi);
 }
 
-static BOOL
-MPDPolarPointIsAtEnd(MPDPolarPoint p)
-{
-    return p.phi >= 360.0;
-}
-
 
 static MPDPolarPoint
 MPDRotatePolarPoint(MPDPolarPoint pt, CGFloat angle)
@@ -84,13 +78,11 @@ MPDMakePointFromPolarPoint(MPDPolarPoint p)
     NSPoint current = start;
     MPDPolarPoint polar = MPDMakePolarPointFromPoint(current);
 
-    do
-    {
-        polar = MPDRotatePolarPoint(polar, 30.0);
+    for (int i = 30; i <= 360; i += 30) {
+        polar = MPDRotatePolarPoint(polar, i);
         current = MPDMakePointFromPolarPoint(polar);
         [path lineToPoint:current];
     }
-    while (!MPDPolarPointIsAtEnd(polar));
 
     [path lineToPoint:start];
     [path closePath];
