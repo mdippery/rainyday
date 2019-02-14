@@ -26,8 +26,8 @@
 
 #define CIRCLE_START      0
 #define CIRCLE_END      360
-#define ANGLE_DELTA       5
-#define RADIUS_DELTA      1.0
+#define ANGLE_DELTA      10
+#define RADIUS_DELTA      1.5
 
 
 @implementation NSBezierPath (RainyDay)
@@ -40,7 +40,10 @@
     NSBezierPath *path = [NSBezierPath bezierPath];
 
     for (int angle = CIRCLE_START; angle <= CIRCLE_END - ANGLE_DELTA; angle += ANGLE_DELTA) {
-        CGFloat r = SSRandomFloatBetween(radius - RADIUS_DELTA, radius + RADIUS_DELTA);
+        CGFloat r = SSRandomFloatBetween(radius - RADIUS_DELTA, radius);
+        if (angle == CIRCLE_START || angle + ANGLE_DELTA == CIRCLE_END) {
+            r = radius;
+        }
         [path appendBezierPathWithArcWithCenter:center radius:r startAngle:angle endAngle:angle + ANGLE_DELTA];
     }
 
