@@ -23,66 +23,19 @@
 #import "NSBezierPath+RainyDay.h"
 
 
-typedef struct
-{
-    CGFloat rho;
-    CGFloat phi;
-}
-MPDPolarPoint;
-
-
-static MPDPolarPoint
-MPDMakePolarPoint(CGFloat rho, CGFloat phi)
-{
-    MPDPolarPoint p = { rho, phi };
-    return p;
-}
-
-
-static MPDPolarPoint
-MPDRotatePolarPoint(MPDPolarPoint pt, CGFloat angle)
-{
-    return MPDMakePolarPoint(pt.rho, pt.phi + angle);
-}
-
-
-static NSPoint
-MPDMakePointFromPolarPoint(MPDPolarPoint p)
-{
-    CGFloat x = p.rho * cos(p.phi);
-    CGFloat y = p.rho * sin(p.phi);
-    return NSMakePoint(x, y);
-}
-
-
-static NSPoint
-MPDAdjustPoint(NSPoint pt, NSPoint origin)
-{
-    return NSMakePoint(pt.x + origin.x, pt.y + origin.y);
-}
-
-
 @implementation NSBezierPath (RainyDay)
 
 + (NSBezierPath *)imperfectCircleInRect:(NSRect)frame
 {
-    NSBezierPath *path = [NSBezierPath bezierPath];
     const CGFloat radius = frame.size.width / 2.0;
     const NSPoint center = NSMakePoint(radius, radius);
-    const NSPoint start = NSMakePoint(frame.size.width, center.y);
 
-    [path moveToPoint:start];
+    NSBezierPath *path = [NSBezierPath bezierPath];
 
-    NSPoint current = start;
-    MPDPolarPoint polar = MPDMakePolarPoint(0.0, 0.0);
-
-    for (int i = 30; i <= 360; i += 30) {
-        polar = MPDRotatePolarPoint(polar, i);
-        current = MPDAdjustPoint(MPDMakePointFromPolarPoint(polar), center);
-        [path lineToPoint:current];
+    for (int angle = 0; angle <= 330; angle += 30) {
+        [path appendBezierPathWithArcWithCenter:center radius:radius startAngle:angle endAngle:angle + 30];
     }
 
-    [path lineToPoint:start];
     [path closePath];
     [path fill];
 
