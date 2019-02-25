@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>${CURRENT_PROJECT_VERSION}</string>
+	<string>1.0.0a2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>${CURRENT_PROJECT_VERSION}</string>
+	<string>100.2</string>
 	<key>NSPrincipalClass</key>
 	<string>MPDRainyDayView</string>
 </dict>
