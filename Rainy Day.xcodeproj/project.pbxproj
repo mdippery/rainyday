@@ -152,6 +152,7 @@
 				B7141163190A3FE0005A0B3C /* Frameworks */,
 				B7141164190A3FE0005A0B3C /* Headers */,
 				B7141165190A3FE0005A0B3C /* Resources */,
+				B76A4BBB2BF70B60001EF754 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -202,6 +203,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B76A4BBB2BF70B60001EF754 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "xcrun agvtool next-version -all\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B7141162190A3FE0005A0B3C /* Sources */ = {
@@ -338,13 +360,16 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 101;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/RainyDay-Prefix.pch";
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.monkey-robot.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Debug;
@@ -355,13 +380,16 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 101;
 				DEAD_CODE_STRIPPING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Source/RainyDay-Prefix.pch";
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.monkey-robot.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Release;
